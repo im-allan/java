@@ -4,23 +4,24 @@ import java.util.Scanner;
 
 public class app {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        try (Scanner scanner = new Scanner(System.in)) { // Usar try-with-resources para cerrar el Scanner automáticamente
+            System.out.print("Introduce el primer número: ");
+            int numero1 = scanner.nextInt();
 
-        System.out.println("Introduce el primer número:");
-        int numero1 = scanner.nextInt();
+            System.out.print("Introduce el segundo número: ");
+            int numero2 = scanner.nextInt();
 
-        System.out.println("Introduce el segundo número:");
-        int numero2 = scanner.nextInt();
+            // Realizar las operaciones y almacenar los resultados
+            int suma = numero1 + numero2;
+            int resta = numero1 - numero2;
+            int multiplicacion = numero1 * numero2;
+            int division = numero1 / numero2;
 
-        int suma = numero1 + numero2;
-        int resta = numero1 - numero2;
-        int multiplicacion = numero1 * numero2;
-        int division = numero1 / numero2;
-
-        System.out.println("La suma es: " + suma);
-        System.out.println("La resta es: " + resta);
-        System.out.println("La multiplicación es: " + multiplicacion);
-        System.out.println("La división es: " + division);
+            // Imprimir los resultados de manera eficiente
+            System.out.printf("La suma es: %d%n", suma);
+            System.out.printf("La resta es: %d%n", resta);
+            System.out.printf("La multiplicación es: %d%n", multiplicacion);
+            System.out.printf("La división es: %d%n", division);
+        }
     }
 }
-
